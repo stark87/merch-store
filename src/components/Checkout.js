@@ -1,14 +1,23 @@
 import { ProductContext } from "../context";
 import PayPalButton from './cart/PayPalButton';
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import { sendEmail } from '../email';
+import { useNavigate } from 'react-router-dom'
 
-const Checkout = (history) => {
-    const { dispatch } = useContext(ProductContext);
+const Checkout = () => {
+    const { state, dispatch } = useContext(ProductContext);
 
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [bool, setBool] = useState(false);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        dispatch({ type: 'SUM_TOTAL' })
+        // return () => {
+        //     cleanup
+        // }    
+    }, [state.cart])
 
 
     const handleSubmit = (e) => {
@@ -45,7 +54,7 @@ const Checkout = (history) => {
                             </div>
 
                             <div className="col-12 col-lg-5 border-start border-top" style={{background: "#fafafa"}}>
-                                <div className="row d-none d-lg-flex" style={{ height: "20vh" }}></div>
+                                <div className="row d-none d-lg-flex" style={{ height: "25vh" }}></div>
                                 <div className="row d-lg-none m-0 py-3">
                                     <div className="col-6 d-flex-column justify-content-center">
                                         <p className='m-0 text-center fw-bold'>SUBTOTAL</p>
@@ -57,9 +66,16 @@ const Checkout = (history) => {
                                         <p className='m-0 text-center fw-bold'>${value.state.cartTax}</p>
                                         <p className='m-0 text-center fw-bold'>${value.state.cartTotal}</p>
                                     </div>
-                                    <PayPalButton total={value.state.cartTotal} clearCart={() => dispatch({ type: 'CLEAR_CART' })} history={history}>
-
-                                    </PayPalButton>
+                                    <div className="py-5 d-flex justify-content-center">
+                                        {bool ?
+                                            <PayPalButton
+                                                total={value.state.cartTotal}
+                                                clearCart={() => dispatch({ type: 'CLEAR_CART' })}
+                                                data={{ value: value.state, name: name, email: email }}
+                                                navigate={navigate}>
+                                            </PayPalButton> : null
+                                        }
+                                    </div>
                                 </div>
                                 <div className="row d-none d-lg-flex m-0 py-3">
                                     <div className="col">
@@ -71,15 +87,16 @@ const Checkout = (history) => {
                                         <p className='m-0 text-end fw-bold'>${value.state.cartSubTotal}</p>
                                         <p className='m-0 text-end fw-bold'>${value.state.cartTax}</p>
                                         <p className='m-0 text-end fw-bold'>${value.state.cartTotal}</p>
-
-                                        <PayPalButton total={value.state.cartTotal} clearCart={() => dispatch({ type: 'CLEAR_CART' })} history={history}>
-
-                                        </PayPalButton>
-                                        <button onClick={() => {
-                                            if(bool){
-                                                sendEmail(value.state, name, email)
-                                            }
-                                        }}>Pay</button>
+                                    </div>
+                                    <div className="py-5 d-flex justify-content-end">
+                                        {bool ?
+                                            <PayPalButton 
+                                                total={value.state.cartTotal} 
+                                                clearCart={() => dispatch({ type: 'CLEAR_CART' })}
+                                                data={{value: value.state, name: name, email: email}} 
+                                                navigate={navigate}>
+                                            </PayPalButton> : null
+                                        }
                                     </div>
                                 </div>
                             </div>

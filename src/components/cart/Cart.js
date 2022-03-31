@@ -75,7 +75,9 @@ const Cart = () => {
                                             <p>Taxes and shipping will be calculated at checkout</p>
                                         </span>
                                     <span className='d-flex justify-content-end pt-3'>
-                                        <CustomButton className='m-0 px-3' style={{ background: "black", color: "white" }}>CHECKOUT &nbsp;&rarr;</CustomButton>
+                                        <Link to="/checkout" style={{ textDecoration: 'none' }}>
+                                            <CustomButton className='m-0 px-3' style={{ background: "black", color: "white" }}>CHECKOUT &nbsp;&rarr;</CustomButton>
+                                        </Link>
                                     </span>
                                         {value.state.cart.length === 0 ? null :
                                             <span className='d-flex justify-content-end pt-4'><CustomButton className='m-0' style={{ background: "black", color: "white" }} onClick={() => dispatch({ type: 'CLEAR_CART' })}>CLEAR CART</CustomButton></span>
@@ -89,9 +91,9 @@ const Cart = () => {
                                             <p>Taxes and shipping will be calculated at checkout</p>
                                         </span>
                                     <span className='d-flex justify-content-end'>
-                                            <Link to="/checkout" style={{ textDecoration: 'none' }}>
-                                        <CustomButton className='m-0 px-3' style={{ background: "black", color: "white" }}>CHECKOUT &nbsp;&rarr;</CustomButton>
-                                    </Link>
+                                        <Link to="/checkout" style={{ textDecoration: 'none' }}>
+                                            <CustomButton className='m-0 px-3' style={{ background: "black", color: "white" }}>CHECKOUT &nbsp;&rarr;</CustomButton>
+                                        </Link>
                                     </span>
                                     {value.state.cart.length === 0 ? null :
                                         <span className='d-flex justify-content-end pt-5'><CustomButton className='m-0' style={{ background: "black", color: "white" }} onClick={() => dispatch({ type: 'CLEAR_CART' })}>CLEAR CART</CustomButton></span>
