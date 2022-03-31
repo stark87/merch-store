@@ -2,7 +2,6 @@ import { ProductContext } from "../context";
 import PayPalButton from './cart/PayPalButton';
 import { useContext, useState } from "react";
 import { sendEmail } from '../email';
-import Cart from "./cart/Cart";
 
 const Checkout = (history) => {
     const { dispatch } = useContext(ProductContext);

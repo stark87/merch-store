@@ -2,7 +2,6 @@ import React from 'react'
 import { useContext, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import { ProductContext } from '../../context';
-import { sendEmail } from '../../email';
 import CustomButton from '../CustomButton';
 import CartItem from './CartItem';
 

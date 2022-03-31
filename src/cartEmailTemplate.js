@@ -1,5 +1,4 @@
 import React from 'react';
-import { Email, Item, Image, Span, A, Box } from 'react-html-email';
 
 const MyEmail = ({data}) => {
     return (

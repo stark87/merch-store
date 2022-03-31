@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React from 'react'
 import ClothesOptions from './ClothesOptions';
 import PhoneOptions from './PhoneOptions';
 import SkateOption from './SkateOption';

@@ -1,7 +1,7 @@
-import React, { createContext, Component } from "react";
+import React, { createContext } from "react";
 import { useReducer, useEffect } from "react";
-import { cartItems, products } from "./productData";
-// import { v4 as uuidv4 } from 'uuid';
+import { products } from "./productData";
+
 import { reducer } from "./components/reducer";
 
 
