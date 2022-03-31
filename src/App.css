@@ -1,38 +1,108 @@
-.App {
-  text-align: center;
+:root{
+  --mainWhite: #f3f3f3;
+  --mainDark: #232528;
+  --mainGrey: rgba(0, 0, 0, 0.32)
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+@media only screen and (max-width: 600px) {
+  #s{
+    display: none;
+  }
+  #social-media{
+    background: #ececec;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+@media only screen and (max-width: 768px) {
+  html::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+
+body{
+  font-family: Montserrat, sans-serif !important;
+  background-color: var(--mainWhite);
+  color: var(--mainDark);
+}
+
+#social-media a {
+  text-decoration: none!important;
+  color: #7b7b7b;
+  transition: 0.2s ease-in-out;
+}
+
+#social-media a:hover {
+  text-decoration: none!important;
+  color: red;
+}
+
+#share a {
+  text-decoration: none!important;
+  color: black;
+}
+
+/* #social-media a:hover {
+  text-decoration: none!important;
+  color: red;
+} */
+
+input[type="number"] {
+  background: #f6f6f6;
+  border: none;
+}
+
+input[type="number"]:focus {
+  outline: none;
+}
+
+.option{
+  text-transform: capitalize;
+  background-color: white;
+  border: none;
+  padding: 0.6rem 0.8rem;
+  margin: 0 0.4rem;
+  transition: 0.6s cubic-bezier(0, 0, 0.2, 1);
+}
+.option:hover{
+  background: black;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.option.current{
+  border: 1px solid black;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.option.current:hover{
+  background: white;
+  color: black;
+}
+
+.carousel-item{
+  transition: transform 1.2s cubic-bezier(0.01, 1.14, 0.91, 1.08)!important;
+}
+
+.carousel-indicators{
+    position: relative!important;
+}
+
+.carousel-indicators [data-bs-target]{
+    background-color: #222323!important;
+    border-radius: 50%;
+    width: 12px!important;
+    height: 12px!important;
+    margin-right: 5px!important;
+    margin-left: 5px!important;
+}
+
+.carousel-indicators .active{
+    background-color: black;
+}
+
+.carousel-control-next, .carousel-control-prev {
+  height: fit-content;
+}
+
+.info img{
+  width: 100%;
 }
