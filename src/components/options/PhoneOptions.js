@@ -14,7 +14,6 @@ const PhoneOptions = () => {
             element.addEventListener('click',
                 () => {
                     let current = document.querySelectorAll('.current');
-                    console.log(current[0]);
                     current[0].className = "option";
                     element.className = "option current"
                     option1 = element.innerText;

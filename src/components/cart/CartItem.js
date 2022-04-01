@@ -16,7 +16,7 @@ const CartItem = (props) => {
                 </div>
                 <div className="col-4 my-auto">
                     <h5 className='fw-bold fst-italic'>{title}</h5>
-                    {option? <CustomButton className='text-capitalize'>{option}</CustomButton>: null}
+                    {option? <CustomButton className='text-uppercase'>{option}</CustomButton>: null}
                     <br />
                     <CustomButton onClick={() => dispatch({ type: 'REMOVE_ITEM', uid: uid })}>Remove</CustomButton>
                 </div>

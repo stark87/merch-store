@@ -24,7 +24,7 @@ function App() {
                 <Route path="/details/:id" element={<Details />} />
                 <Route path="*" element={<Default />} />
               </Route>
-              <Route path="/checkout" element={value.state.cart.length == 0 ? <Navigate to="/" /> : <Checkout />} />
+              <Route path="/checkout" element={value.state.cart.length === 0 ? <Navigate to="/" /> : <Checkout />} />
             </Routes>
           </BrowserRouter>
         );

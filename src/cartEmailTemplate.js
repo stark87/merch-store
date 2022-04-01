@@ -16,7 +16,7 @@ const MyEmail = ({data}) => {
                 {data.cart.map(cartItem => {
                     return <tr key={cartItem.uid} style={{ borderBottom: "1px solid black" }}>
                         <td style={{ width: '15%', marginRight: 0, paddingBottom: "24px", paddingTop: "24px" }}>
-                            <img src="https://cdn.shopify.com/s/files/1/1494/5022/products/ADHD_BlackT-Shirt_100Bands_720x_b9078137-f08d-4952-8803-5ee58ccd7b35_900x.png?v=1586367621" width="100px" alt="" />
+                            <img src={"https://merch-store.netlify.app/" + cartItem.img[0]} width="100px" alt="" />
                         </td>
                         <td style={{ width: '35%' }}>
                             {cartItem.title}

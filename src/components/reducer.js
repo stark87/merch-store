@@ -17,7 +17,8 @@ export const reducer = (state, action) => {
             product.count = 1;
             const price = product.price;
             product.total = price;
-            product.option = product.type === ("phones" || "clothes" || "skate deck") ? state.option : null;
+            product.option = state.option;
+            // product.type === ("phones" || "clothes" || "skate deck") ? state.option : null;
             let tempCart = state.cart
             if (state.cart.length > 0 &&
                 tempCart.some((cartItem) => {
@@ -25,7 +26,9 @@ export const reducer = (state, action) => {
                 })
             ) {
                 alert("Item already in cart");
-                return;
+                return{
+                    ...state,
+                };
             }
             alert("Item added to cart");
             return {

@@ -20,7 +20,7 @@ export const sendEmail = (data, name, email) => {
         message: messageHtml,
         user_email: email,
     },
-    "q42MlwCSdScg1eV_v")
+    process.env.REACT_APP_USER_ID)
         .then((result) => {
             console.log(result.text);
         }, (error) => {
