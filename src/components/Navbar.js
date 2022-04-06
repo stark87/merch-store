@@ -20,7 +20,7 @@ const Navbar = () => {
                             <Link to="/Cart">
                                 <span style={{ color: "black" }}><i className="fas fa-shopping-cart" /></span>
                                 {(value.state.cart.length === 0) ?
-                                    null : (<span style={{ color: "black", fontSize: "10px" }}><i className="fas fa-circle" style={{ position: "relative", bottom: "10px" }} /></span>)
+                                    null : (<span style={{ color: "red", fontSize: "10px", position: "relative", left: "-4px", bottom: "-2px" }}><i className="fas fa-circle" style={{ position: "relative", bottom: "10px" }} /></span>)
                                 }
                             </Link>
                         </Nav>

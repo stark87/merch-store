@@ -17,8 +17,10 @@ export const reducer = (state, action) => {
             product.count = 1;
             const price = product.price;
             product.total = price;
-            product.option = state.option;
-            // product.type === ("phones" || "clothes" || "skate deck") ? state.option : null;
+            product.option = null
+            if ((product.type === "phone case" || product.type === "clothes" || product.type === "skate deck")) {
+                product.option = state.option;
+            }
             let tempCart = state.cart
             if (state.cart.length > 0 &&
                 tempCart.some((cartItem) => {

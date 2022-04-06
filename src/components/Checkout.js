@@ -1,7 +1,6 @@
 import { ProductContext } from "../context";
 import PayPalButton from './cart/PayPalButton';
 import { useContext, useState, useEffect } from "react";
-import { sendEmail } from '../email';
 import { useNavigate } from 'react-router-dom'
 
 const Checkout = () => {
@@ -22,8 +21,12 @@ const Checkout = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (bool === false) {
-            setBool(!bool);
+        if (navigator.onLine) {
+            if (bool === false) {
+                setBool(!bool);
+            }
+        } else {
+            alert("You are offline")
         }
     }
 

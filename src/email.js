@@ -3,7 +3,8 @@ import emailjs from '@emailjs/browser';
 import { renderEmail } from 'react-html-email'
 import MyEmail from './cartEmailTemplate';
 
-export const sendEmail = (data, name, email) => {
+export const sendEmail = async (data, name, email) => {
+    let result;
 
     const capitalize = (string) => {
         return string.charAt(0).toUpperCase() + string.slice(1);
@@ -13,7 +14,7 @@ export const sendEmail = (data, name, email) => {
 
     const messageHtml = renderEmail(<MyEmail data={data}/>);
 
-    emailjs.send('service_gypejrk', 'template_sh6597h', 
+    result = await emailjs.send('service_gypejrk', 'template_sh6597h', 
     {
         subject: "Purchase Invoice",
         name: `Hello ${userName}, here is your invoice for the items you purchased from Merch-store`,
@@ -21,9 +22,9 @@ export const sendEmail = (data, name, email) => {
         user_email: email,
     },
     process.env.REACT_APP_USER_ID)
-        .then((result) => {
-            console.log(result.text);
-        }, (error) => {
-            console.log(error.text);
-        });
+        .then((res) => {
+            return res.status
+        })
+    
+    return result;
 };
