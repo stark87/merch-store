@@ -59,7 +59,7 @@ export const PayPalButton = (props)  => {
     let currency = 'USD';
     
     const client = {
-        sandbox: process.env.REACT_APP_APP_ID,
+        sandbox: 'AXgfw1HGXZlb51DXesC55Lyf1V3ngqNgiEUZf2bI5moWvYYHyLoOT6cKFw91rdoquhH1PGwV9x7GAGQX',
         production: 'YOUR-PRODUCTION-APP-ID',
     }   
 
