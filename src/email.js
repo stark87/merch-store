@@ -21,7 +21,7 @@ export const sendEmail = async (data, name, email) => {
         message: messageHtml,
         user_email: email,
     },
-    process.env.REACT_APP_USER_ID)
+    'q42MlwCSdScg1eV_v')
         .then((res) => {
             return res.status
         })
